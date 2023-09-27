@@ -1,0 +1,87 @@
+FRONTEND
+1. tạo thư mục Django + React
+2. tạo react app tên là "frontend":
+	npx create-react-app frontend: tạo react-app
+	cd frontend: chuyển đến thư mục "frontend"
+	nmp start: khởi động react-app
+3. Thao tác với react:
+	cài đặt snippet: Nodejs Snippets
+	phím tắt
+		rcfe: phím tắt import React from 'react'
+		imp: import modulName fromt 'folder'
+		imd: import { } from "component"
+	1.Download React-bootstrap: https://react-bootstrap.github.io/
+		npm install react-bootstrap bootstrap
+	Download bootstrap 4: https://bootswatch.com/
+		Download "Lux theme"
+	Download awefont: https://bootswatch.com/  --> import vào index.html <để thêm các icon>
+	Copy "navbar" từ https://react-bootstrap.github.io/ vào "Header.js"
+
+	2.cài đặt: React Router để tạo <Link></Link> giữa các Pages
+		npm install react-router-dom react-router-bootstrap
+
+
+	3.FETCHING DATA từ Backend: 1127.0.0.1:8000/api
+	npm install axios: fetching data
+
+
+	4. Install Redux as well as the React Redux package
+	create Redux Store:
+	chrome: install Redux devtools extension
+	npm install redux react-redux redux-thunk redux-devtools-extension
+
+	tạo các reducers lưu data vào state, tạo các action
+	đối với CartPage, lưu lại data cart vào localstorage sử dụng JSON.parse(localStorage.getItem()) và localStorage.setItem (JSON.stringify(getState()), lấy ra sử dụng localStorage.getItem()
+	
+
+
+
+
+
+
+BACKEND
+1. Cài đặt virtual environment:
+	pip install virtualenv: tạo virutalenv
+	myenv\scripts\activate: chạy virutalenv
+2. Cài đặt Django app
+
+	1...pip install django
+	django admin startproject backend: tạo Django app tên là "backend"
+
+	cd backend : tạo Django App trong thư mục backend
+	python manage.py runserver: "127.0.0.1:8000"
+	ctr+c: tắt server
+
+	python manage.py startapp app: tạo app có tên là "app"
+
+
+	2...TẠO DATABASE
+		pip install pymysql
+	edit the __init__.py:
+		import pymysql
+		pymysql.install_as_MySQLdb()
+
+	
+	python manage.py makemigrations
+	python manage.py migrate
+	python manage.py createsuperuser
+
+	Đối với DB là file ảnh: pip install pillow
+
+	Đối Với đường dẫn ảnh, tạo thư mục static/images: ảnh của DB sẽ được lưu vào đó
+		MEDIA_URL = 'images/'
+		MEDIA_ROOT = 'static/images'
+
+	3. DRF
+		Để phát triển ứng dụng với DjangoRestFrameWork, cần cài đặt các thư viện sau:
+		-Cross-Origin Resource Sharing (CORS) là việc cho phép gọi webservice (từ trình duyệt) giữa các website 
+		có domain khác nhau. Thông thường việc gọi webservice từ một địa chỉ (ví dụ http://www.site1) sang một địa chỉ ở site khác 
+		(ví dụ http://www.site2) sẽ bị chặn lại nếu site1 không được site2 cho phép.
+			django cors header:
+			python -m pip install django-cors-headers
+	
+	4. JWT BACKEND USER AUTHENTICATION
+		jwt.io : JSON Web Token, Token sẽ lưu ở local storage dưới dạng mã hóa, muốn giải mã vào trang jwt
+		pip install djangorestframework-simplejwt
+		username: admin
+		password: abc@1234
